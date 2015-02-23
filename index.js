@@ -37,7 +37,7 @@ refTagger = React.createClass({
     el = document.createElement('script');
     el.type = 'text/javascript';
     el.async = true;
-    el.src = '//api.reftagger.com/v2/RefTagger.js';
+    el.src = 'https://api.reftagger.com/v2/RefTagger.js';
     s = document.getElementsByTagName('script')[0];
     return s.parentNode.insertBefore(el, s);
   },
