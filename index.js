@@ -1,49 +1,50 @@
-var React, script, scriptIsAdded, refTagger;
+import React, { Component } from 'react';
 
-React = require('react');
+export default class RefTagger extends Component {
 
-script = React.DOM.script;
+    constructor(props) {
+        super(props); 
+        
+        const defaultSettings = {
+            bibleVersion: "ESV"
+        }
 
-if (typeof window !== "undefined" && window !== null) {
-  if (window.refTagger == null) {
-    window.refTagger = {
+        if (typeof window !== "undefined" && window !== null) {
+            if (window.refTagger == null) {
+              window.refTagger = {
+                settings: {
+                    ...defaultSettings, 
+                    ...props.settings
+                }
+              };
+            }
+        }
+    }
 
-          settings: {
-            bibleVersion: "ESV"     
-          }
-    };
-  }
+    componentDidMount() {
+        if(!RefTagger.scriptIsAdded) {
+            return this.addScript(); 
+        }
+    }
+
+    componentDidUpdate() {
+        window.refTagger.tag(); 
+    }
+
+    addScript() {
+        var el, s;
+        RefTagger.scriptIsAdded = true;
+        el = document.createElement('script');
+        el.type = 'text/javascript';
+        el.async = true;
+        el.src = 'https://api.reftagger.com/v2/RefTagger.js';
+        s = document.getElementsByTagName('script')[0];
+        return s.parentNode.insertBefore(el, s);
+    }
+
+    render() {
+        return(<div style={{display: 'none'}}></div>); 
+    }
 }
 
-
-scriptIsAdded = false;
-
-
-refTagger = React.createClass({
-  displayName: 'refTagger',
-  componentDidMount: function() {
-    if (!scriptIsAdded) {
-      return this.addScript();
-    }
-  },
-
-  componentDidUpdate: function(prevProps, prevState) {
-    window.refTagger.tag();
-  },
-
-  addScript: function() {
-    var el, s;
-    scriptIsAdded = true;
-    el = document.createElement('script');
-    el.type = 'text/javascript';
-    el.async = true;
-    el.src = 'https://api.reftagger.com/v2/RefTagger.js';
-    s = document.getElementsByTagName('script')[0];
-    return s.parentNode.insertBefore(el, s);
-  },
-  render: function() {
-    return script(null);
-  }
-});
-
-module.exports = refTagger;
+RefTagger.scriptIsAdded = false; 

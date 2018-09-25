@@ -20,6 +20,9 @@
     "faithlife",
     "logos"
   ],
+  "dependencies": {
+    "react": ">=16.0.0"
+  },
   "author": "Mike Freyberger",
   "license": "ISC",
   "bugs": {
