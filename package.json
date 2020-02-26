@@ -1,6 +1,6 @@
 {
   "name": "react-reftagger",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "Reftagger converts Bible references into links with hover-preview",
   "main": "index.js",
   "directories": {
@@ -20,7 +20,7 @@
     "faithlife",
     "logos"
   ],
-  "author": "Mike Freyberger",
+  "author": "Faithlife",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Faithlife/react-reftagger/issues"
