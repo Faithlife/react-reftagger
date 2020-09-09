@@ -21,7 +21,7 @@ export const RefTagger = (props: RefTaggerSettings): null => {
     if (!scriptAdded) addScript(setScriptAdded);
     if (window && !window.refTagger) addRefTagger(props);
     if (window.refTagger && window.refTagger.tag) window.refTagger.tag();
-  }, []);
+  });
 
   return null;
 };
