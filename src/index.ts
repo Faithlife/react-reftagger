@@ -25,5 +25,3 @@ export const RefTagger = (props: RefTaggerSettings): null => {
 
   return null;
 };
-
-export * from './interfaces'
