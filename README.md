@@ -2,7 +2,7 @@
 
 Utilize [Faithlife RefTagger](https://faithlife.com/products/reftagger) in sites built with React.
 
-## Installation:
+## Installation
 
 ```sh
 npm install react-reftagger
@@ -12,7 +12,7 @@ yarn add react-reftagger
 pnpm i react-reftagger
 ```
 
-## Usage:
+## Usage
 
 Import RefTagger for use
 
@@ -25,6 +25,8 @@ Use RefTagger as a component and provide the configuration options as props. Con
 ```JSX
 <RefTagger bibleVersion={'ESV'} />;
 ```
+
+## Advanced Usage
 
 You can have RefTagger run on only part of your DOM via the `rootNode` configuration option.
 
