@@ -1,30 +1,6 @@
-export interface BodyStyle {
-  color?: string;
-  fontFamily?:
-    | "Arial, 'Helvetica Neue', Helvetica, sans-serif"
-    | "'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace"
-    | "Georgia, Times, 'Times New Roman', serif"
-    | "Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif"
-    | 'Tahoma, Verdana, Segoe, sans-serif'
-    | "TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif"
-    | 'Verdana, Geneva, sans-serif';
-  fontSize?: '12px' | '14px' | '16px' | '18px';
-}
-
-export interface HeadingStyle extends BodyStyle {
-  backgroundColor?: string;
-}
-
-export interface CustomStyle {
-  heading?: HeadingStyle;
-  body?: BodyStyle;
-}
-
-export type SocialShare = 'twitter' | 'facebook' | 'google' | 'faithlife';
-
 export interface RefTaggerSettings {
   addLogosLink?: boolean;
-  bibleReader?: 'bible.faithlife';
+  bibleReader?: 'bible.faithlife' | 'biblia';
   bibleVersion?:
     | 'AB'
     | 'ASV'
@@ -34,6 +10,7 @@ export interface RefTaggerSettings {
     | 'HCSB'
     | 'KJV'
     | 'LEB'
+    | 'LSG'
     | 'MESSAGE'
     | 'NASB'
     | 'NCV'
@@ -42,7 +19,8 @@ export interface RefTaggerSettings {
     | 'NKJV'
     | 'NLT'
     | 'DOUAYRHEIMS'
-    | 'YLT';
+    | 'YLT'
+    | string;
   caseInsensitive?: boolean;
   convertHyperlinks?: boolean;
   customStyle?: CustomStyle;
@@ -51,12 +29,35 @@ export interface RefTaggerSettings {
   logosLinkIcon?: 'dark' | 'light';
   noSearchClassNames?: string[];
   noSearchTagNames?: string[];
+  rootNode?: Node;
   roundCorners?: boolean;
   socialSharing?: SocialShare[];
   tagChapters?: boolean;
-  tooltipStyle?: 'dark';
+  tooltipStyle?: 'dark' | 'light';
   useTooltip?: boolean;
 }
+
+export interface CustomStyle {
+  heading?: HeadingStyle;
+  body?: BodyStyle;
+}
+
+export interface HeadingStyle extends BodyStyle {
+  backgroundColor?: string;
+}
+
+export interface BodyStyle {
+  color?: string;
+  fontFamily?: string;
+  fontSize?: string;
+  moreLink?: MoreLinkStyle;
+}
+
+export interface MoreLinkStyle {
+  color?: string;
+}
+
+export type SocialShare = 'twitter' | 'facebook' | 'google' | 'faithlife';
 
 export interface RefTaggerWindowObject {
   settings: RefTaggerSettings;

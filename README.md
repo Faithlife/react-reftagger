@@ -14,33 +14,31 @@ pnpm i react-reftagger
 
 ## Usage:
 
-Import RefTagger for use:
+Import RefTagger for use
 
 ```javascript
 import { RefTagger } from 'react-reftagger';
 ```
 
-RefTagger configuration options can be found in the type declaration file or [on the RefTagger customization page](https://faithlife.com/products/reftagger/customize).
-
-```javascript
-const refTaggerSettings = {
-  bibleVersion: 'NASB',
-  dropShadow: true,
-  roundCorners: true,
-  tooltipStyle: 'dark',
-  customStyle: {
-    heading: {
-      fontSize: '18px',
-    },
-    body: {
-      fontSize: '16px',
-    },
-  },
-};
-```
-
-Use RefTagger as a component and provide the configuration options as props.
+Use RefTagger as a component and provide the configuration options as props. Configuration options can be found in the [type declaration file](./src/interfaces.ts) or on the [RefTagger customization page](https://faithlife.com/products/reftagger/customize).
 
 ```JSX
-<RefTagger {...refTaggerSettings} />;
+<RefTagger bibleVersion={'ESV'} />;
+```
+
+You can have RefTagger run on only part of your DOM via the `rootNode` configuration option.
+
+```tsx
+const [rootNode, setRootNode] = useState(null as Node);
+const setRef = useCallback((node: Node) => {
+  setRootNode(node);
+}, []);
+
+return (
+  <div>
+    <div>{`Here's John 1:1.`}</div>
+    <div ref={setRef}>{`Here's John 1:2.`}</div>
+    {!rootNode ? null : <RefTagger bibleVersion={'ESV'} rootNode={rootNode} />}
+  </div>
+);
 ```
