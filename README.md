@@ -1,4 +1,4 @@
-# react-reftagger
+# react-reftagger &middot; ![npm](https://img.shields.io/npm/v/react-reftagger)
 
 Utilize [Faithlife RefTagger](https://faithlife.com/products/reftagger) in sites built with React.
 
