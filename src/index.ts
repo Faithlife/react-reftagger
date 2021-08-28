@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import { RefTaggerSettings } from './interfaces';
 
-const addScript = (setScriptAdded: React.Dispatch<React.SetStateAction<boolean>>): void => {
+const addScript = (
+  setScriptAdded: React.Dispatch<React.SetStateAction<boolean>>,
+  lang: string
+): void => {
   setScriptAdded(true);
+  lang = lang ? `.${lang}` : null;
   const el = document.createElement('script');
   el.type = 'text/javascript';
   el.async = true;
-  el.src = 'https://api.reftagger.com/v2/RefTagger.js';
+  el.src = `https://api.reftagger.com/v2/RefTagger${lang}.js`;
   document.getElementsByTagName('body')[0].appendChild(el);
 };
 
@@ -19,7 +23,7 @@ export const RefTagger = (props: RefTaggerSettings): null => {
 
   useEffect(() => {
     if (!scriptAdded) {
-      addScript(setScriptAdded);
+      addScript(setScriptAdded, props.lang);
     }
     if (window && !window.refTagger) {
       addRefTagger(props);
