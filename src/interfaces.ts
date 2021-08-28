@@ -65,8 +65,6 @@ export interface RefTaggerWindowObject {
   tag?: () => any;
 }
 
-export interface Language {}
-
 declare global {
   interface Window {
     refTagger: RefTaggerWindowObject;
