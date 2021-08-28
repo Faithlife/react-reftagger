@@ -35,6 +35,7 @@ export interface RefTaggerSettings {
   tagChapters?: boolean;
   tooltipStyle?: 'dark' | 'light';
   useTooltip?: boolean;
+  lang?: string;
 }
 
 export interface CustomStyle {
@@ -63,6 +64,8 @@ export interface RefTaggerWindowObject {
   settings: RefTaggerSettings;
   tag?: () => any;
 }
+
+export interface Language {}
 
 declare global {
   interface Window {
