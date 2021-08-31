@@ -6,7 +6,7 @@ const addScript = (
   lang: string
 ): void => {
   setScriptAdded(true);
-  lang = lang ? `.${lang}` : null;
+  const languageSuffix = lang ? `.${lang}` : '';
   const el = document.createElement('script');
   el.type = 'text/javascript';
   el.async = true;
