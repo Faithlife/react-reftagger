@@ -35,7 +35,7 @@ export interface RefTaggerSettings {
   tagChapters?: boolean;
   tooltipStyle?: 'dark' | 'light';
   useTooltip?: boolean;
-  lang?: string;
+  language?: 'de' | 'en' | 'es' | 'fr' | 'ko';
 }
 
 export interface CustomStyle {
