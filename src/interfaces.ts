@@ -25,7 +25,7 @@ export interface RefTaggerSettings {
   convertHyperlinks?: boolean;
   customStyle?: CustomStyle;
   dropShadow?: boolean;
-  language?: 'de' | 'en' | 'es' | 'fr' | 'ko' | string;
+  language?: 'en' | 'es' | string;
   linksOpenNewWindow?: boolean;
   logosLinkIcon?: 'dark' | 'light';
   noSearchClassNames?: string[];
